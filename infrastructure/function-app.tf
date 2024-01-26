@@ -28,5 +28,33 @@ resource "azurerm_linux_function_app" "example" {
 
   storage_account_name = azurerm_storage_account.function_app.name
 
-  site_config {}
+  site_config {
+    always_on = false
+    application_stack {
+        dotnet_version = "6.0"
+    }
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+resource "azurerm_app_service_source_control" "function_app" {
+  app_id   = azurerm_linux_function_app.example.id
+  repo_url = "https://github.com/tom-hooper-91/MyFunctionApp"
+  branch   = "main"
+
+  github_action_configuration {
+    generate_workflow_file = true
+    code_configuration {
+        runtime_stack = "dotnetcore"
+        runtime_version = "6.0"
+    }
+  }
+}
+
+resource "azurerm_source_control_token" "function_app" {
+  type         = "GitHub"
+  token        = var.github_auth_token
 }
