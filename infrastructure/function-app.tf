@@ -27,6 +27,7 @@ resource "azurerm_linux_function_app" "example" {
   service_plan_id     = azurerm_service_plan.function_app.id
 
   storage_account_name = azurerm_storage_account.function_app.name
+  storage_account_access_key = azurerm_storage_account.function_app.primary_access_key
 
   site_config {
     always_on = false

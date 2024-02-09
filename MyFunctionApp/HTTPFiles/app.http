@@ -1,0 +1,13 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+GET {{HostAddress}}api/HttpExample
+X-FUNCTIONS-KEY: {{ApiKey}}
+Content-Type: application/json
+ 
+{
+    "name": "Bob"
+}
+
+###
+
+GET https://tom-hooper-linux-function-app.azurewebsites.net/api/HttpExample
+X-FUNCTIONS-KEY: {{ApiKey}}
