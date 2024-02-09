@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: tom-hooper-linux-function-app
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_82D7A29EA376487B8530875B7E50538D }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_71D93EF5A93D4910A2894BA94BDE0F7B }}
         package: ${{env.DOTNET_ROOT}}/myapp
 
