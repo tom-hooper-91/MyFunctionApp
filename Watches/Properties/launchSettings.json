@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Watches": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 80",
+      "launchBrowser": false
+    }
+  }
+}
