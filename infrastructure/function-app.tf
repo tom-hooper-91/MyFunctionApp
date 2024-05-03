@@ -1,4 +1,4 @@
-resource "azurerm_linux_function_app" "db" {
+resource "azurerm_linux_function_app" "watches" {
   name                = "tom-hooper-linux-function-app"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
@@ -10,7 +10,7 @@ resource "azurerm_linux_function_app" "db" {
   site_config {
     always_on = false
     application_stack {
-        dotnet_version = "6.0"
+        dotnet_version = "8.0"
     }
   }
 
@@ -20,7 +20,7 @@ resource "azurerm_linux_function_app" "db" {
 }
 
 resource "azurerm_app_service_source_control" "function_app" {
-  app_id   = azurerm_linux_function_app.db.id
+  app_id   = azurerm_linux_function_app.watches.id
   repo_url = "https://github.com/tom-hooper-91/MyFunctionApp"
   branch   = "main"
 
@@ -28,7 +28,7 @@ resource "azurerm_app_service_source_control" "function_app" {
     generate_workflow_file = true
     code_configuration {
         runtime_stack = "dotnetcore"
-        runtime_version = "6.0"
+        runtime_version = "8.0"
     }
   }
 }
