@@ -21,7 +21,7 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0'
+        dotnet-version: '8.0'
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: tom-hooper-linux-function-app
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D00E5FCB6E904B8688E6E352BEFF484E }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A1A4EACED5FC492BA398F05C18EDCD8D }}
         package: ${{env.DOTNET_ROOT}}/myapp
 
